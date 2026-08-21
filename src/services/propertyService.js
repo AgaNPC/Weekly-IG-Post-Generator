@@ -137,8 +137,18 @@ export const INITIAL_PROPERTY_NEWS = [
 
 export const THEME_PRESETS = [
   {
+    id: "real-estate-flyer",
+    name: "Modern Property Poster (Photo Layout)",
+    styleType: "photo-flyer",
+    bg: "#f4f0ea",
+    textColor: "#3c332c",
+    accentColor: "#663af3",
+    fontFamily: "'Space Grotesk', sans-serif"
+  },
+  {
     id: "midnight-cathedral",
     name: "Frosted Glass Cathedral",
+    styleType: "glass-card",
     bg: "#05060f",
     cardBg: "rgba(186, 214, 247, 0.03)",
     textColor: "#d8ecf8",
@@ -151,6 +161,7 @@ export const THEME_PRESETS = [
   {
     id: "modern-dark",
     name: "Gen Z Blueprint Glass",
+    styleType: "glass-card",
     bg: "linear-gradient(135deg, #05060f 0%, #1e1b4b 60%, #090d16 100%)",
     cardBg: "rgba(30, 41, 59, 0.7)",
     textColor: "#ffffff",
@@ -163,6 +174,7 @@ export const THEME_PRESETS = [
   {
     id: "emerald-wealth",
     name: "Money & Wealth Emerald",
+    styleType: "glass-card",
     bg: "linear-gradient(135deg, #064e3b 0%, #022c22 100%)",
     cardBg: "rgba(6, 78, 59, 0.6)",
     textColor: "#f0fdf4",
@@ -175,6 +187,7 @@ export const THEME_PRESETS = [
   {
     id: "sunset-terracotta",
     name: "Warm Terracotta Ember",
+    styleType: "glass-card",
     bg: "linear-gradient(135deg, #7c2d12 0%, #351404 100%)",
     cardBg: "rgba(124, 45, 18, 0.6)",
     textColor: "#fff7ed",
