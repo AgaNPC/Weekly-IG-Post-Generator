@@ -221,93 +221,104 @@ export const THEME_PRESETS = [
 
 export function generateAIGeneratedPost(newsItem, styleTone = "professional") {
   const categoryUpper = (newsItem.category || "PROPERTY NEWS").toUpperCase();
+  const title = newsItem.title || "Info Properti Terbaru";
 
-  const tonePrefix = {
-    professional: `📊 ${categoryUpper} | MARKET ANALYSIS 2026`,
-    casual: `🔥 SPOILER [${categoryUpper}]: Wajib Paham Sebelum Ambil Rumah!`,
-    storytelling: `💡 CURHAT MILENIAL (${categoryUpper}): 'Bisa Nggak Ya Punya Rumah?'`,
-    educational: `📚 KPR CLASS 101: Bedah Tuntas [${newsItem.source || 'Property Feed'}]`,
-    urgent: `🚨 WARNING ALERTL [${categoryUpper}]: Cek Poin Ini Sebelum Tanda Tangan!`
-  }[styleTone] || `📢 ${categoryUpper} WEEKLY UPDATE`;
+  // Matrix Tone Configurations
+  const toneConfigs = {
+    professional: {
+      prefix: `📊 ANALISIS PASAR 2026 | ${categoryUpper}`,
+      hook: `Informasi penting bagi calon pembeli rumah pertama dan investor properti. Berikut ringkasan eksekutif dari ${newsItem.source} (${newsItem.date}):`,
+      pointLabel: "📌 Poin Utama Analisis Pasar:",
+      question: `💬 Menurut analisis Anda, apakah perubahan pada ${newsItem.category} ini akan memicu lonjakan transaksi properti di Kuartal III 2026? Tulis pandangan Anda di kolom komentar.`,
+      cta: "📌 Simpan postingan ini sebagai referensi analisis properti Anda.\n👥 Bagikan ke kolega / klien yang sedang mempertimbangkan KPR.",
+      hashtags: ["#PropertyNews", "#AnalisisProperti", "#KPR2026", "#InfoRealEstate", "#InvestasiProperti", "#MarketUpdateID"]
+    },
+    casual: {
+      prefix: `🔥 SPOILER [${categoryUpper}]: JANGAN PANIK DULU GUYS!`,
+      hook: `Spill berita properti ter-hot minggu ini dari ${newsItem.source}! Buat yang lagi nahan napas ngelihat harga rumah, baca ini dulu deh biar lega:`,
+      pointLabel: "⚡ Quick Fact Check (Anti Pusing):",
+      question: `💬 Jujur ya guys, dari poin di atas, mana yang paling bikin kamu ketar-ketir pas mau ambil KPR? Tulis curhatan kamu di bawah! 👇`,
+      cta: "📌 Save post ini biar gak lupa pas nyari rumah nanti!\n👥 Tag bestie / pasangan kamu yang lagi pusing keliling nyari developer!",
+      hashtags: ["#GenZProperty", "#SpillHargaRumah", "#RumahGenZ", "#FomoKPR", "#SolusiRumahMurah", "#PejuangKPR"]
+    },
+    storytelling: {
+      prefix: `💡 CURHAT MILENIAL (${categoryUpper}): 'GUE BISA NGGAKYA PUNYA RUMAH?'`,
+      hook: `Pernah nggak sih ngerasa gaji udah lumayan, tapi pas nanya simulasi KPR ke bank langsung kena mental? Nih, cerita di balik kabar terbaru dari ${newsItem.source}:`,
+      pointLabel: "📖 Realita & Pelajaran Pentingnya:",
+      question: `💬 Cerita dong, apa momen 'reality check' paling berkesan waktu pertama kali kamu/temen kamu mulai kepikiran beli rumah sendiri?`,
+      cta: "📌 Simpan cerita ini sebagai reminder perjalanan kamu punya rumah!\n👥 Tag teman yang lagi berjuang ngumpulin dana DP!",
+      hashtags: ["#CurhatKPR", "#PengalamanBeliRumah", "#CeritaFirstHome", "#MilenialMelekFinansial", "#RumahTanpaStres", "#PerjalananKPR"]
+    },
+    educational: {
+      prefix: `📚 KPR CLASS 101: BEDAH TUNTAS [${categoryUpper}]`,
+      hook: `Biar nggak asal pilih KPR atau tertipu promo manis developer, yuk bedah fakta materi properti terbaru ini step-by-step:`,
+      pointLabel: "🎓 Rangkuan Edukasi (Must-Know Checklist):",
+      question: `💬 Istilah properti atau KPR apa lagi nih yang masih bikin kamu bingung dan mau kita bedah minggu depan?`,
+      cta: "📌 Bookmark materi edukasi ini buat persiapan akad kamu!\n👥 Share ke teman-teman kamu biar makin melek finansial properti!",
+      hashtags: ["#EdukasiKPR", "#BelajarProperti", "#CekBiayaKPR", "#SimulasiKPR", "#TipsKeuanganGenZ", "#PropertyClass101"]
+    },
+    urgent: {
+      prefix: `🚨 WARNING ALERT [${categoryUpper}]: CEK SEBELUM TANDA TANGAN!`,
+      hook: `PERHATIAN! Jangan pernah menyetujui akad atau booking fee sebelum kamu paham betul dampak dari isu ${newsItem.category} berikut:`,
+      pointLabel: "⚠️ Poin Peringatan Taktis (Danger Zone):",
+      question: `💬 Kamu udah tahu belum soal risiko ini sebelum baca post ini? Atau ada yang udah pernah berpengalaman kena jebakan biaya?`,
+      cta: "📌 Wajib simpan & baca ulang saat pengecekan berkas KPR!\n👥 Forward segera ke keluarga atau teman yang mau transaksi minggu ini!",
+      hashtags: ["#WaspadaKPR", "#CekSebelumAkad", "#FixedVsFloating", "#BiayaAkadKPR", "#SmartPropertyBuyer", "#KPRChecklist"]
+    }
+  };
 
-  const slide1Title = newsItem.title.split(":")[0] || newsItem.title;
-  const slide1Sub = newsItem.source + " • Target: Gen Z & Young Millennials";
+  const currentTone = toneConfigs[styleTone] || toneConfigs.professional;
 
   const slides = [
     {
       slideIndex: 1,
       type: "cover",
-      tagline: "REALITY CHECK 🎯",
-      title: slide1Title,
-      subtitle: slide1Sub,
-      footer: "Swipe biar gak panik lagi 👉"
+      tagline: categoryUpper,
+      title: title.split(":")[0] || title,
+      subtitle: `${newsItem.source} • Target: Gen Z & Young Millennials`,
+      footer: "Swipe untuk info lengkap 👉"
     },
     ...newsItem.keyPoints.map((pt, idx) => ({
       slideIndex: idx + 2,
       type: "point",
-      tagline: `FACT #${idx + 1}`,
+      tagline: `POINT #${idx + 1}`,
       title: pt,
-      subtitle: "Perspektif realistis buat kamu yang mau ambil KPR pertama tanpa mikir terlalu berat.",
-      footer: `KPR Anxiety Guide • ${idx + 2}/4`
+      subtitle: `Detail poin penting seputar ${newsItem.category}.`,
+      footer: `Weekly IG Generator • ${idx + 2}/4`
     })),
     {
       slideIndex: 4,
       type: "cta",
-      tagline: "SURVIVAL KIT 🚀",
-      title: "Punya KPR Anxiety Atau Masih Bingung Hitung DP?",
-      subtitle: "Simpan post ini & share ke pasangan/bestie kamu yang lagi pejuang rumah pertama!",
-      footer: "Follow @FirstHomeGenZ for Honest Property Tips 💡"
+      tagline: "ACTION PLAN 🚀",
+      title: "Siap Punya Rumah Pertama Tanpa KPR Anxiety?",
+      subtitle: "Simpan & share post ini ke teman / pasangan kamu sekarang!",
+      footer: "Follow @FirstHomeGenZ for Daily Tips 💡"
     }
   ];
 
-  const hashtagPresets = {
-    professional: [
-      "#GenZProperty", "#FirstHomeBuyer", "#KPRAnxiety", "#RumahPertama", 
-      "#TipsKPR", "#FinancialFreedomGenZ", "#PropertiMilenial", "#InfoKPR", "#AnalisisProperti"
-    ],
-    casual: [
-      "#SpillHargaRumah", "#RumahGenZ", "#FomoKPR", "#SolusiRumahMurah", 
-      "#PejuangKPR", "#LifeHackProperti", "#RumahImpianGenZ", "#InfoProperti"
-    ],
-    storytelling: [
-      "#CurhatKPR", "#PengalamanBeliRumah", "#CeritaFirstHome", "#MilenialMelekFinansial", 
-      "#RumahTanpaStres", "#PerjalananKPR", "#StoryProperti"
-    ],
-    educational: [
-      "#EdukasiKPR", "#BelajarProperti", "#CekBiayaKPR", "#KPRSyariah", 
-      "#SimulasiKPR", "#TipsKeuanganGenZ", "#PropertyGuide"
-    ],
-    urgent: [
-      "#WaspadaKPR", "#FixedVsFloating", "#BiayaAkadKPR", "#CekSebelumAkad", 
-      "#BebasKreditMacet", "#SmartPropertyBuyer", "#KPRChecklist"
-    ]
-  };
+  const caption = `${currentTone.prefix}
 
-  const selectedHashtags = hashtagPresets[styleTone] || hashtagPresets.professional;
-
-  const caption = `${tonePrefix}
-
-${newsItem.title}
+${title}
 
 ${newsItem.summary}
 
-🔑 Reality Check Poin Penting:
+${currentTone.pointLabel}
 ${newsItem.keyPoints.map(p => `• ${p}`).join("\n")}
 
-💬 Pertanyaan buat kamu pejuang rumah pertama:
-Apa hal terbesar yang paling bikin kamu takut/panik waktu mikirin KPR rumah pertama? (DP / Cicilan / Suku Bunga Floating / Biaya Akad)? Tulis curhatanmu di kolom komentar yuk! 👇
+${currentTone.hook}
+
+${currentTone.question}
 
 ---
-📌 Simpan postingan ini biar nggak hilang pas butuh!
-👥 Tag pasangan / bestie kamu yang lagi pusing nyari rumah pertama!
+${currentTone.cta}
 
-${selectedHashtags.join(" ")}`;
+${currentTone.hashtags.join(" ")}`;
 
   return {
     newsId: newsItem.id,
     tone: styleTone,
     slides,
     caption,
-    hashtags: selectedHashtags
+    hashtags: currentTone.hashtags
   };
 }
