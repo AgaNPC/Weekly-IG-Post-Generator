@@ -14,7 +14,13 @@ import {
   Palette, 
   ExternalLink,
   Code2,
-  Newspaper
+  Newspaper,
+  Flame,
+  Bookmark,
+  MessageSquare,
+  ShieldCheck,
+  TrendingUp,
+  Hash
 } from 'lucide-react';
 import { toPng } from 'html-to-image';
 import confetti from 'canvas-confetti';
@@ -51,7 +57,7 @@ export default function App() {
       setGeneratedPost(post);
       setIsGenerating(false);
       setActiveSlideIndex(0);
-    }, 300);
+    }, 250);
   };
 
   const handleToneChange = (newTone) => {
@@ -71,15 +77,15 @@ export default function App() {
     const newNews = {
       id: `custom-${Date.now()}`,
       title: customTitle,
-      category: "Custom News",
-      source: "User Input Feed",
+      category: "Custom News Feed",
+      source: "User Input",
       date: "Hari Ini",
       summary: customSummary,
       url: "#",
       keyPoints: [
-        customSummary.slice(0, 50) + "...",
-        "Poin penting dari berita properti terbaru.",
-        "Rekomendasi tindakan bagi pembeli & investor."
+        customSummary.slice(0, 60) + "...",
+        "Analisis kustom untuk target Gen Z & Young Millennials.",
+        "Rekomendasi taktis sebelum mengambil keputusan KPR."
       ]
     };
 
@@ -106,8 +112,8 @@ export default function App() {
       link.click();
       
       confetti({
-        particleCount: 80,
-        spread: 60,
+        particleCount: 70,
+        spread: 50,
         origin: { y: 0.8 }
       });
     } catch (err) {
@@ -116,27 +122,51 @@ export default function App() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Header */}
-      <header className="glass-panel" style={{ margin: '16px 24px', padding: '16px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div style={{ background: 'linear-gradient(135deg, #0284c7, #3b82f6)', padding: '10px', borderRadius: '12px', display: 'flex' }}>
-            <Building2 size={24} color="#fff" />
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', padding: '16px' }}>
+      
+      {/* Header - AuthKit Cathedral Midnight style */}
+      <header className="glass-panel" style={{ padding: '16px 24px', marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <div style={{ 
+            width: '42px', 
+            height: '42px', 
+            borderRadius: '9999px', 
+            background: 'var(--color-luminous-fill)', 
+            border: '1px solid var(--color-glass-edge)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            <Building2 size={22} color="#d8ecf8" />
           </div>
           <div>
-            <h1 style={{ fontSize: '1.25rem', fontWeight: 700, letterSpacing: '-0.02em', background: 'linear-gradient(to right, #ffffff, #94a3b8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            <h1 className="wordmark-gradient" style={{ fontSize: '1.35rem', fontWeight: 600, letterSpacing: '-0.01em' }}>
               Weekly IG Post Generator
             </h1>
-            <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Auto-generate Instagram posts from latest Property news</p>
+            <p style={{ fontSize: '0.8rem', color: 'var(--color-moon-mist)' }}>
+              Auto-generate Instagram posts & carousels from Property News (Gen Z & KPR Anxiety Edition)
+            </p>
           </div>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <span style={{ 
+            fontSize: '0.72rem', 
+            fontFamily: 'var(--font-dotdigital)', 
+            padding: '4px 10px', 
+            borderRadius: '6px', 
+            background: 'var(--color-luminous-fill)',
+            border: '1px solid var(--color-glass-edge)',
+            color: 'var(--color-moon-mist)',
+            textTransform: 'uppercase'
+          }}>
+            Theme: Midnight Cathedral
+          </span>
           <a 
             href="https://github.com/AgaNPC/Weekly-IG-Post-Generator" 
             target="_blank" 
             rel="noreferrer" 
-            className="btn-secondary"
+            className="btn-ghost-pill"
             style={{ textDecoration: 'none', fontSize: '0.85rem' }}
           >
             <Code2 size={16} /> GitHub Repo
@@ -144,21 +174,31 @@ export default function App() {
         </div>
       </header>
 
-      {/* Main Workspace */}
-      <main style={{ flex: 1, padding: '0 24px 32px 24px', display: 'grid', gridTemplateColumns: '360px 1fr 380px', gap: '20px' }}>
+      {/* Main Grid Layout */}
+      <main style={{ flex: 1, display: 'grid', gridTemplateColumns: '400px 1fr 420px', gap: '20px' }}>
         
-        {/* Left Column: News Feed Selector */}
+        {/* Left Column: Expanded Property News Feed (8+ Articles) */}
         <section className="glass-panel" style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <h2 style={{ fontSize: '1rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Newspaper size={18} color="#38bdf8" /> Trending Property News
+            <h2 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--color-ice-highlight)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Newspaper size={18} color="#b6d9fc" /> Trending Property News Feed
             </h2>
-            <span style={{ fontSize: '0.75rem', background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', padding: '4px 8px', borderRadius: '20px' }}>
-              {newsList.length} Feed
+            <span style={{ 
+              fontSize: '0.7rem', 
+              fontFamily: 'var(--font-dotdigital)',
+              background: 'var(--color-luminous-fill)', 
+              color: 'var(--color-blueprint-blue)', 
+              padding: '3px 8px', 
+              borderRadius: '6px',
+              border: '1px solid var(--color-glass-edge)'
+            }}>
+              {newsList.length} FEEDS
             </span>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', overflowY: 'auto', maxHeight: '420px', paddingRight: '4px' }}>
+          {/* News List Container with Smooth Scrollbar */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', overflowY: 'auto', maxHeight: '460px', paddingRight: '4px' }}>
             {newsList.map((news) => {
               const isSelected = selectedNews.id === news.id;
               return (
@@ -169,20 +209,26 @@ export default function App() {
                   style={{ 
                     padding: '14px', 
                     cursor: 'pointer',
-                    borderColor: isSelected ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)',
-                    background: isSelected ? 'rgba(56, 189, 248, 0.12)' : 'rgba(30, 41, 59, 0.4)'
+                    borderColor: isSelected ? 'var(--color-void-violet)' : 'var(--color-glass-edge)',
+                    background: isSelected ? 'rgba(102, 58, 243, 0.15)' : 'var(--color-luminous-fill)',
+                    boxShadow: isSelected ? '0 0 12px rgba(102, 58, 243, 0.3)' : 'none'
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-                    <span style={{ fontSize: '0.7rem', color: '#38bdf8', fontWeight: 600, textTransform: 'uppercase' }}>
+                    <span style={{ 
+                      fontSize: '0.68rem', 
+                      fontFamily: 'var(--font-dotdigital)', 
+                      color: isSelected ? '#b6d9fc' : 'var(--color-moon-mist)', 
+                      fontWeight: 500 
+                    }}>
                       {news.category}
                     </span>
-                    <span style={{ fontSize: '0.7rem', color: '#64748b' }}>{news.date}</span>
+                    <span style={{ fontSize: '0.68rem', color: 'var(--color-fog-veil)' }}>{news.date}</span>
                   </div>
-                  <h3 style={{ fontSize: '0.88rem', fontWeight: 600, lineHeight: 1.35, color: isSelected ? '#ffffff' : '#cbd5e1' }}>
+                  <h3 style={{ fontSize: '0.86rem', fontWeight: 600, lineHeight: 1.35, color: isSelected ? '#ffffff' : 'var(--color-frost-glow)' }}>
                     {news.title}
                   </h3>
-                  <p style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '6px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  <p style={{ fontSize: '0.74rem', color: 'var(--color-fog-veil)', marginTop: '6px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                     {news.summary}
                   </p>
                 </div>
@@ -191,44 +237,69 @@ export default function App() {
           </div>
 
           {/* Add Custom News Form */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '16px' }}>
-            <h3 style={{ fontSize: '0.85rem', fontWeight: 600, marginBottom: '10px', color: '#e2e8f0' }}>
-              + Input Berita Properti Sendiri
+          <div style={{ borderTop: '1px solid var(--color-glass-edge)', paddingTop: '14px' }}>
+            <h3 style={{ fontSize: '0.82rem', fontWeight: 600, marginBottom: '8px', color: 'var(--color-moon-mist)' }}>
+              + Input Berita Properti Kustom
             </h3>
             <form onSubmit={handleAddCustomNews} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <input 
                 type="text" 
-                placeholder="Judul berita properti..."
+                placeholder="Judul berita / isu KPR..."
                 value={customTitle}
                 onChange={(e) => setCustomTitle(e.target.value)}
-                style={{ background: 'rgba(15, 23, 42, 0.6)', border: '1px solid rgba(255,255,255,0.15)', padding: '8px 12px', borderRadius: '8px', color: '#fff', fontSize: '0.8rem' }}
+                style={{ 
+                  background: 'rgba(5, 6, 15, 0.9)', 
+                  border: '1px solid var(--color-glass-edge)', 
+                  padding: '8px 12px', 
+                  borderRadius: '6px', 
+                  color: '#fff', 
+                  fontSize: '0.78rem',
+                  outline: 'none'
+                }}
               />
               <textarea 
                 placeholder="Rangkuman/Isi ringkas berita..."
                 value={customSummary}
                 onChange={(e) => setCustomSummary(e.target.value)}
                 rows={2}
-                style={{ background: 'rgba(15, 23, 42, 0.6)', border: '1px solid rgba(255,255,255,0.15)', padding: '8px 12px', borderRadius: '8px', color: '#fff', fontSize: '0.8rem', resize: 'none' }}
+                style={{ 
+                  background: 'rgba(5, 6, 15, 0.9)', 
+                  border: '1px solid var(--color-glass-edge)', 
+                  padding: '8px 12px', 
+                  borderRadius: '6px', 
+                  color: '#fff', 
+                  fontSize: '0.78rem', 
+                  resize: 'none',
+                  outline: 'none'
+                }}
               />
-              <button type="submit" className="btn-secondary" style={{ width: '100%', justifyContent: 'center', fontSize: '0.8rem' }}>
-                <Sparkles size={14} /> Generate dari Input
+              <button type="submit" className="btn-ghost-pill" style={{ width: '100%', justifyContent: 'center', fontSize: '0.8rem' }}>
+                <Sparkles size={14} color="#b6d9fc" /> Generate dari Input
               </button>
             </form>
           </div>
         </section>
 
-        {/* Middle Column: Visual IG Post Previewer */}
+        {/* Middle Column: Visual IG Post Preview Canvas */}
         <section className="glass-panel" style={{ padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }}>
           
-          {/* Controls bar */}
-          <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+          {/* Controls Bar */}
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Palette size={16} color="#38bdf8" />
-              <span style={{ fontSize: '0.85rem', color: '#cbd5e1', fontWeight: 500 }}>Theme Style:</span>
+              <Palette size={16} color="#b6d9fc" />
+              <span style={{ fontSize: '0.82rem', color: 'var(--color-moon-mist)' }}>Theme Style:</span>
               <select 
                 value={selectedTheme.id} 
                 onChange={(e) => setSelectedTheme(THEME_PRESETS.find(t => t.id === e.target.value))}
-                style={{ background: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(255,255,255,0.15)', padding: '4px 10px', borderRadius: '6px', color: '#fff', fontSize: '0.8rem' }}
+                style={{ 
+                  background: 'rgba(5, 6, 15, 0.9)', 
+                  border: '1px solid var(--color-glass-edge)', 
+                  padding: '4px 10px', 
+                  borderRadius: '6px', 
+                  color: '#fff', 
+                  fontSize: '0.8rem',
+                  outline: 'none'
+                }}
               >
                 {THEME_PRESETS.map(t => (
                   <option key={t.id} value={t.id}>{t.name}</option>
@@ -236,7 +307,7 @@ export default function App() {
               </select>
             </div>
 
-            <button onClick={handleDownloadSlide} className="btn-primary" style={{ fontSize: '0.85rem', padding: '6px 14px' }}>
+            <button onClick={handleDownloadSlide} className="btn-violet" style={{ fontSize: '0.82rem', padding: '8px 16px' }}>
               <Download size={15} /> Download Slide PNG
             </button>
           </div>
@@ -245,22 +316,23 @@ export default function App() {
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: 1, width: '100%', padding: '10px 0' }}>
             {isGenerating ? (
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
-                <RefreshCw size={32} color="#38bdf8" className="spin" style={{ animation: 'spin 1s linear infinite' }} />
-                <p style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Generating Instagram Slide AI...</p>
+                <RefreshCw size={32} color="#663af3" style={{ animation: 'spin 1s linear infinite' }} />
+                <p style={{ fontSize: '0.85rem', color: 'var(--color-moon-mist)' }}>Generating AuthKit Glass Slide...</p>
               </div>
             ) : (
               <div 
                 ref={slideRef}
                 style={{
-                  width: '380px',
-                  height: '380px',
+                  width: '390px',
+                  height: '390px',
                   background: selectedTheme.bg,
                   borderRadius: '16px',
                   padding: '28px',
                   display: 'flex',
                   flexDirection: 'column',
                   justify: 'space-between',
-                  boxShadow: '0 20px 40px -15px rgba(0,0,0,0.5)',
+                  border: selectedTheme.borderEdge,
+                  boxShadow: 'var(--shadow-modal)',
                   position: 'relative',
                   overflow: 'hidden',
                   fontFamily: selectedTheme.fontFamily,
@@ -271,18 +343,18 @@ export default function App() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ 
                     fontSize: '0.65rem', 
-                    fontWeight: 700, 
+                    fontFamily: 'var(--font-dotdigital)', 
                     letterSpacing: '0.1em', 
                     color: selectedTheme.accentColor, 
-                    background: 'rgba(255,255,255,0.1)', 
+                    background: 'rgba(186, 215, 247, 0.08)', 
+                    border: '1px solid var(--color-glass-edge)',
                     padding: '4px 10px', 
-                    borderRadius: '20px',
-                    backdropFilter: 'blur(4px)'
+                    borderRadius: '6px'
                   }}>
                     {generatedPost.slides[activeSlideIndex]?.tagline}
                   </span>
-                  <span style={{ fontSize: '0.7rem', opacity: 0.7 }}>
-                    PROPERTY INSIGHTS
+                  <span style={{ fontSize: '0.7rem', opacity: 0.75, fontFamily: 'var(--font-dotdigital)' }}>
+                    KPR ANXIETY GUIDE
                   </span>
                 </div>
 
@@ -290,7 +362,7 @@ export default function App() {
                 <div style={{ margin: '16px 0' }}>
                   <h2 style={{ 
                     fontSize: activeSlideIndex === 0 ? '1.25rem' : '1.15rem', 
-                    fontWeight: 700, 
+                    fontWeight: 600, 
                     lineHeight: 1.35, 
                     marginBottom: '10px',
                     color: selectedTheme.textColor 
@@ -300,16 +372,15 @@ export default function App() {
                   <p style={{ 
                     fontSize: '0.8rem', 
                     lineHeight: 1.4, 
-                    opacity: 0.85,
-                    color: selectedTheme.textColor
+                    color: selectedTheme.bodyTextColor || 'var(--color-frost-glow)'
                   }}>
                     {generatedPost.slides[activeSlideIndex]?.subtitle}
                   </p>
                 </div>
 
                 {/* Bottom Footer */}
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontSize: '0.7rem', opacity: 0.8, fontWeight: 500 }}>
+                <div style={{ borderTop: '1px solid rgba(186, 215, 247, 0.15)', paddingTop: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '0.7rem', color: selectedTheme.mutedTextColor || 'var(--color-moon-mist)', fontWeight: 500 }}>
                     {generatedPost.slides[activeSlideIndex]?.footer}
                   </span>
                   <div style={{ display: 'flex', gap: '4px' }}>
@@ -320,7 +391,7 @@ export default function App() {
                           width: idx === activeSlideIndex ? '16px' : '6px',
                           height: '6px',
                           borderRadius: '3px',
-                          background: idx === activeSlideIndex ? selectedTheme.accentColor : 'rgba(255,255,255,0.3)',
+                          background: idx === activeSlideIndex ? selectedTheme.accentColor : 'rgba(255,255,255,0.2)',
                           transition: 'all 0.3s ease'
                         }}
                       />
@@ -332,20 +403,20 @@ export default function App() {
           </div>
 
           {/* Slide Switcher */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '16px' }}>
-            <span style={{ fontSize: '0.8rem', color: '#94a3b8', marginRight: '4px' }}>Slides:</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '14px' }}>
+            <span style={{ fontSize: '0.78rem', color: 'var(--color-moon-mist)', marginRight: '4px' }}>Slide Selection:</span>
             {generatedPost.slides.map((slide, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveSlideIndex(idx)}
                 style={{
                   padding: '6px 12px',
-                  borderRadius: '8px',
-                  border: idx === activeSlideIndex ? '1px solid #38bdf8' : '1px solid rgba(255,255,255,0.1)',
-                  background: idx === activeSlideIndex ? 'rgba(56, 189, 248, 0.2)' : 'rgba(30, 41, 59, 0.5)',
-                  color: idx === activeSlideIndex ? '#38bdf8' : '#94a3b8',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
+                  borderRadius: '6px',
+                  border: idx === activeSlideIndex ? '1px solid var(--color-void-violet)' : '1px solid var(--color-glass-edge)',
+                  background: idx === activeSlideIndex ? 'rgba(102, 58, 243, 0.25)' : 'var(--color-luminous-fill)',
+                  color: idx === activeSlideIndex ? '#ffffff' : 'var(--color-moon-mist)',
+                  fontSize: '0.78rem',
+                  fontWeight: 500,
                   cursor: 'pointer'
                 }}
               >
@@ -356,46 +427,73 @@ export default function App() {
 
         </section>
 
-        {/* Right Column: AI Caption Generator & Hashtags */}
+        {/* Right Column: Varied AI Caption & Hashtags */}
         <section className="glass-panel" style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <h2 style={{ fontSize: '1rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Wand2 size={18} color="#f43f5e" /> AI Caption & Hashtags
+            <h2 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--color-ice-highlight)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Wand2 size={18} color="#663af3" /> AI Caption & Hashtags Generator
             </h2>
-            <button onClick={handleCopyCaption} className="btn-secondary" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>
+            <button onClick={handleCopyCaption} className="btn-ghost-pill" style={{ fontSize: '0.75rem', padding: '4px 10px' }}>
               {copiedCaption ? <Check size={14} color="#34d399" /> : <Copy size={14} />}
               {copiedCaption ? 'Copied!' : 'Copy Text'}
             </button>
           </div>
 
-          {/* Tone Selector */}
+          {/* Tone Selector (5 Varied Options) */}
           <div>
-            <label style={{ fontSize: '0.75rem', color: '#94a3b8', display: 'block', marginBottom: '6px' }}>
-              Gaya Penulisan / Tone:
+            <label style={{ fontSize: '0.75rem', color: 'var(--color-moon-mist)', display: 'block', marginBottom: '6px' }}>
+              Pilih Gaya Penulisan / Tone Caption:
             </label>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>
               {[
-                { id: 'professional', label: '📊 Formal' },
-                { id: 'casual', label: '🔥 Casual' },
-                { id: 'storytelling', label: '💡 Story' }
+                { id: 'professional', label: '📊 Professional' },
+                { id: 'casual', label: '🔥 Casual Gen Z' },
+                { id: 'storytelling', label: '💡 Storytelling' },
+                { id: 'educational', label: '📚 Educational 101' },
+                { id: 'urgent', label: '🚨 Warning Alert' }
               ].map(t => (
                 <button
                   key={t.id}
                   onClick={() => handleToneChange(t.id)}
                   style={{
-                    padding: '6px',
+                    padding: '6px 10px',
                     fontSize: '0.75rem',
                     borderRadius: '6px',
-                    border: tone === t.id ? '1px solid #f43f5e' : '1px solid rgba(255,255,255,0.1)',
-                    background: tone === t.id ? 'rgba(244, 63, 94, 0.15)' : 'rgba(15, 23, 42, 0.4)',
-                    color: tone === t.id ? '#f43f5e' : '#cbd5e1',
+                    border: tone === t.id ? '1px solid var(--color-void-violet)' : '1px solid var(--color-glass-edge)',
+                    background: tone === t.id ? 'rgba(102, 58, 243, 0.25)' : 'var(--color-luminous-fill)',
+                    color: tone === t.id ? '#ffffff' : 'var(--color-moon-mist)',
                     cursor: 'pointer',
-                    fontWeight: tone === t.id ? 600 : 400
+                    fontWeight: tone === t.id ? 500 : 400,
+                    textAlign: 'left'
                   }}
                 >
                   {t.label}
                 </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Hashtag Preview Chips */}
+          <div>
+            <label style={{ fontSize: '0.75rem', color: 'var(--color-moon-mist)', display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px' }}>
+              <Hash size={13} color="#b6d9fc" /> Hashtag Variations ({generatedPost.hashtags.length}):
+            </label>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', maxHeight: '60px', overflowY: 'auto' }}>
+              {generatedPost.hashtags.map((ht, idx) => (
+                <span 
+                  key={idx}
+                  style={{
+                    fontSize: '0.7rem',
+                    background: 'var(--color-luminous-fill)',
+                    border: '1px solid var(--color-glass-edge)',
+                    color: 'var(--color-blueprint-blue)',
+                    padding: '2px 6px',
+                    borderRadius: '4px'
+                  }}
+                >
+                  {ht}
+                </span>
               ))}
             </div>
           </div>
@@ -408,23 +506,19 @@ export default function App() {
               style={{
                 width: '100%',
                 flex: 1,
-                minHeight: '260px',
-                background: 'rgba(15, 23, 42, 0.6)',
-                border: '1px solid rgba(255,255,255,0.1)',
-                borderRadius: '10px',
+                minHeight: '230px',
+                background: 'rgba(5, 6, 15, 0.9)',
+                border: '1px solid var(--color-glass-edge)',
+                borderRadius: '8px',
                 padding: '12px',
-                color: '#e2e8f0',
-                fontSize: '0.8rem',
+                color: 'var(--color-frost-glow)',
+                fontSize: '0.78rem',
                 lineHeight: 1.45,
                 resize: 'none',
-                fontFamily: 'inherit'
+                fontFamily: 'inherit',
+                outline: 'none'
               }}
             />
-          </div>
-
-          {/* Workflow export hint */}
-          <div style={{ padding: '10px 12px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px border-dashed rgba(255,255,255,0.1)', fontSize: '0.75rem', color: '#94a3b8' }}>
-            💡 <strong>Pro Tip:</strong> File <code style={{ color: '#38bdf8' }}>n8n_workflow.json</code> disertakan di repo untuk otomatisasi postingan via webhook n8n / Flowise.
           </div>
 
         </section>

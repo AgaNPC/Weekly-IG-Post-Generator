@@ -1,4 +1,4 @@
-// Property News & RSS Feed Fetcher Service targeted for Gen Z & Young Millennials
+// Property News & RSS Feed Fetcher Service targeted for Gen Z & Young Millennials (KPR Anxiety & First-Home Reality Check)
 
 export const INITIAL_PROPERTY_NEWS = [
   {
@@ -56,49 +56,113 @@ export const INITIAL_PROPERTY_NEWS = [
       "Fitur Joint Income KPR bisa melipatgandakan plafon pinjaman.",
       "Hindari pinjol & cicilan konsumtif 6 bulan sebelum pengajuan KPR."
     ]
+  },
+  {
+    id: "news-5",
+    title: "Bahaya Trap Fix Rate KPR: Kenapa Tahun ke-4 Bikin Banyak Pembeli Rumah Pertama 'Shock'?",
+    category: "KPR Trap Warning",
+    source: "FinansialMuda ID",
+    date: "17 Agu 2026",
+    summary: "Cicilan 3 juta di 3 tahun pertama bisa melonjak jadi 5.5 juta saat masuk floating rate! Pahami istilah KPR Fixed vs Floating sebelum kena kejutan cicilan.",
+    url: "https://example.com/news/kpr-floating-rate-warning",
+    keyPoints: [
+      "Fixed rate hanya berlaku 1-3 tahun di awal.",
+      "Floating rate mengikuti suku bunga pasar yang fluktuatif.",
+      "Simulasi cicilan di kondisi rate tertinggi sebelum menyetujui akad."
+    ]
+  },
+  {
+    id: "news-6",
+    title: "Skema KPR Syariah vs KPR Konvensional untuk Gen Z: Mana Yang Lebih Kepastian Angsuran?",
+    category: "Islamic Finance & KPR",
+    source: "SyariahProperty Daily",
+    date: "16 Agu 2026",
+    summary: "KPR Syariah margin murabahah menawarkan cicilan flat sampai lunas, sementara konvensional punya promo bunga murah di awal. Pilih mana yang cocok dengan profil risiko kamu?",
+    url: "https://example.com/news/kpr-syariah-vs-konven",
+    keyPoints: [
+      "KPR Syariah Murabahah: Cicilan flat 100% sampai tenor selesai.",
+      "KPR Konvensional: Promo bunga floating menarik di tahun-tahun awal.",
+      "Tidak ada penalti pelunasan dipercepat di beberapa akad syariah."
+    ]
+  },
+  {
+    id: "news-7",
+    title: "Overkredit Rumah Sekunder: Jalan Pintas Dapatkan Rumah Murah Lokasi Strategis?",
+    category: "Smart Buyer Hack",
+    source: "PropertiSecond ID",
+    date: "15 Agu 2026",
+    summary: "Banyak pemilik rumah pertama terdesak jual overkredit di bawah harga pasar. Pelajari prosedur hukum resmi lewat notaris & bank agar aman tanpa sengketa.",
+    url: "https://example.com/news/overkredit-rumah-guide",
+    keyPoints: [
+      "Harga jauh lebih miring dibanding launching unit baru.",
+      "Lokasi biasanya sudah hidup & dikelilingi fasilitas lengkap.",
+      "Wajib akad overkredit resmi via bank pelaksana KPR awal."
+    ]
+  },
+  {
+    id: "news-8",
+    title: "Checklist 10 Biaya 'Ghoib' Saat Akad Rumah: Dari BPHTB, Notaris, sampai Asuransi Jiwa",
+    category: "Hidden Fees Alert",
+    source: "MelekFinansial Properti",
+    date: "14 Agu 2026",
+    summary: "Jangan cuma tabung uang DP! Persiapkan 5-10% dari harga rumah untuk menutup biaya appraisal, administrasi bank, premi asuransi kebakaran & BPHTB.",
+    url: "https://example.com/news/biaya-akad-kpr-hidden",
+    keyPoints: [
+      "BPHTB sebesar 5% dari (Harga Jual - NOPTKP).",
+      "Biaya Notaris & Legalisasi berkas akad.",
+      "Asuransi Jiwa & Kebakaran wajib dibayar lunas di muka."
+    ]
   }
 ];
 
 export const THEME_PRESETS = [
   {
+    id: "midnight-cathedral",
+    name: "Frosted Glass Cathedral",
+    bg: "#05060f",
+    cardBg: "rgba(186, 214, 247, 0.03)",
+    textColor: "#d8ecf8",
+    bodyTextColor: "#d1e4fa",
+    mutedTextColor: "#c7d3ea",
+    accentColor: "#663af3", // Void Violet
+    borderEdge: "1px solid rgba(186, 215, 247, 0.12)",
+    fontFamily: "'Space Grotesk', 'Inter', sans-serif"
+  },
+  {
     id: "modern-dark",
-    name: "Gen Z Neon Glass",
-    bg: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #090d16 100%)",
+    name: "Gen Z Blueprint Glass",
+    bg: "linear-gradient(135deg, #05060f 0%, #1e1b4b 60%, #090d16 100%)",
     cardBg: "rgba(30, 41, 59, 0.7)",
     textColor: "#ffffff",
+    bodyTextColor: "#d1e4fa",
+    mutedTextColor: "#9da7ba",
     accentColor: "#38bdf8",
-    secondaryAccent: "#f43f5e",
-    fontFamily: "Inter, sans-serif"
+    borderEdge: "1px solid rgba(56, 189, 248, 0.2)",
+    fontFamily: "'Inter', sans-serif"
   },
   {
     id: "emerald-wealth",
-    name: "Money & Wealth",
+    name: "Money & Wealth Emerald",
     bg: "linear-gradient(135deg, #064e3b 0%, #022c22 100%)",
     cardBg: "rgba(6, 78, 59, 0.6)",
     textColor: "#f0fdf4",
-    accentColor: "#34d399",
-    secondaryAccent: "#fbbf24",
-    fontFamily: "Inter, sans-serif"
+    bodyTextColor: "#34d399",
+    mutedTextColor: "#a7f3d0",
+    accentColor: "#269684",
+    borderEdge: "1px solid rgba(52, 211, 153, 0.2)",
+    fontFamily: "'Inter', sans-serif"
   },
   {
-    id: "sunset-vibes",
-    name: "Warm Terracotta",
-    bg: "linear-gradient(135deg, #7c2d12 0%, #451a03 100%)",
+    id: "sunset-terracotta",
+    name: "Warm Terracotta Ember",
+    bg: "linear-gradient(135deg, #7c2d12 0%, #351404 100%)",
     cardBg: "rgba(124, 45, 18, 0.6)",
     textColor: "#fff7ed",
-    accentColor: "#fb923c",
-    secondaryAccent: "#facc15",
-    fontFamily: "Inter, sans-serif"
-  },
-  {
-    id: "minimal-clean",
-    name: "Nordic Minimalist",
-    bg: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
-    cardBg: "rgba(255, 255, 255, 0.9)",
-    textColor: "#0f172a",
-    accentColor: "#0284c7",
-    secondaryAccent: "#e11d48",
-    fontFamily: "Inter, sans-serif"
+    bodyTextColor: "#fed7aa",
+    mutedTextColor: "#fdba74",
+    accentColor: "#e46d4c",
+    borderEdge: "1px solid rgba(251, 146, 60, 0.2)",
+    fontFamily: "'Inter', sans-serif"
   }
 ];
 
@@ -106,7 +170,9 @@ export function generateAIGeneratedPost(newsItem, styleTone = "professional") {
   const tonePrefix = {
     professional: "📊 FIRST-HOME REALITY CHECK | INFO KPR GEN Z",
     casual: "🔥 SPOILER: Panik Lihat Harga Rumah? Cek Fakta KPR Ini!",
-    storytelling: "💡 Curhat Milenial: 'Gue Bisa Nggak Ya Punya Rumah Sendiri?'"
+    storytelling: "💡 Curhat Milenial: 'Gue Bisa Nggak Ya Punya Rumah Sendiri?'",
+    educational: "📚 KPR CLASS 101: Bedah Tuntas Berita Properti Minggu Ini",
+    urgent: "🚨 WARNING GUYS: Jangan Ambil KPR Sebelum Paham Poin Ini!"
   }[styleTone] || "📢 KPR ANXIETY & PROPERTY NEWS";
 
   const slide1Title = newsItem.title.split(":")[0] || newsItem.title;
@@ -139,6 +205,31 @@ export function generateAIGeneratedPost(newsItem, styleTone = "professional") {
     }
   ];
 
+  const hashtagPresets = {
+    professional: [
+      "#GenZProperty", "#FirstHomeBuyer", "#KPRAnxiety", "#RumahPertama", 
+      "#TipsKPR", "#FinancialFreedomGenZ", "#PropertiMilenial", "#InfoKPR", "#AnalisisProperti"
+    ],
+    casual: [
+      "#SpillHargaRumah", "#RumahGenZ", "#FomoKPR", "#SolusiRumahMurah", 
+      "#PejuangKPR", "#LifeHackProperti", "#RumahImpianGenZ", "#InfoProperti"
+    ],
+    storytelling: [
+      "#CurhatKPR", "#PengalamanBeliRumah", "#CeritaFirstHome", "#MilenialMelekFinansial", 
+      "#RumahTanpaStres", "#PerjalananKPR", "#StoryProperti"
+    ],
+    educational: [
+      "#EdukasiKPR", "#BelajarProperti", "#CekBiayaKPR", "#KPRSyariah", 
+      "#SimulasiKPR", "#TipsKeuanganGenZ", "#PropertyGuide"
+    ],
+    urgent: [
+      "#WaspadaKPR", "#FixedVsFloating", "#BiayaAkadKPR", "#CekSebelumAkad", 
+      "#BebasKreditMacet", "#SmartPropertyBuyer", "#KPRChecklist"
+    ]
+  };
+
+  const selectedHashtags = hashtagPresets[styleTone] || hashtagPresets.professional;
+
   const caption = `${tonePrefix}
 
 ${newsItem.title}
@@ -149,20 +240,19 @@ ${newsItem.summary}
 ${newsItem.keyPoints.map(p => `• ${p}`).join("\n")}
 
 💬 Pertanyaan buat kamu pejuang rumah pertama:
-Apa hal terbesar yang paling bikin kamu takut/panik waktu mikirin KPR rumah pertama? (DP / Cicilan / Suku Bunga / Biaya Akad)? Tulis curhatanmu di kolom komentar yuk! 👇
+Apa hal terbesar yang paling bikin kamu takut/panik waktu mikirin KPR rumah pertama? (DP / Cicilan / Suku Bunga Floating / Biaya Akad)? Tulis curhatanmu di kolom komentar yuk! 👇
 
 ---
 📌 Simpan postingan ini biar nggak hilang pas butuh!
 👥 Tag pasangan / bestie kamu yang lagi pusing nyari rumah pertama!
 
-#GenZProperty #FirstHomeBuyer #KPRAnxiety #RumahPertama #TipsKPR #FinancialFreedomGenZ #PropertiMilenial #InfoKPR`;
+${selectedHashtags.join(" ")}`;
 
   return {
     newsId: newsItem.id,
     tone: styleTone,
     slides,
     caption,
-    hashtags: ["#GenZProperty", "#FirstHomeBuyer", "#KPRAnxiety", "#RumahPertama", "#TipsKPR"]
+    hashtags: selectedHashtags
   };
 }
-
