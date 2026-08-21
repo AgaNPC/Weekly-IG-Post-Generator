@@ -1,60 +1,60 @@
-// Mock Property News & RSS Feed Fetcher Service
+// Property News & RSS Feed Fetcher Service targeted for Gen Z & Young Millennials
 
 export const INITIAL_PROPERTY_NEWS = [
   {
     id: "news-1",
-    title: "Suku Bunga BI Turun, Pasar Properti & KPR Diprediksi Melonjak di Kuartal III 2026",
-    category: "Market Update",
+    title: "Suku Bunga BI Turun: Angin Segar atau Tetap Bikin Gen Z Anxious Soal Cicilan KPR?",
+    category: "KPR Anxiety & Reality Check",
     source: "PropertyInsight ID",
     date: "21 Agu 2026",
-    summary: "Keputusan Bank Indonesia menurunkan suku bunga acuan membawa angin segar bagi calon pembeli rumah. Sektor KPR diperkirakan tumbuh hingga 14% seiring turunnya beban cicilan bulanan.",
-    url: "https://example.com/news/bi-rate-property",
+    summary: "BI rate resmi turun 25 bps! Tapi dengan gaji UMR atau mid-level di Jabodetabek, apakah cicilan rumah 3-5 jutaan per bulan masih realistis tanpa 'puasa' ngopi & holiday?",
+    url: "https://example.com/news/bi-rate-genz-kpr",
     keyPoints: [
-      "Suku bunga acuan BI turun 25 bps.",
-      "KPR perbankan diprediksi makin terjangkau.",
-      "Momen emas untuk first-home buyer dan investor."
+      "BI Rate turun = Peluang cicilan KPR sedikit lebih ringan.",
+      "Reality Check: DP & Biaya Akad sering jadi 'silent killer' pembeli rumah pertama.",
+      "Tips atasi KPR Anxiety: Hitung Rule 30% Gaji sebelum tanda tangan kesepakatan."
     ]
   },
   {
     id: "news-2",
-    title: "Insentif PPN DTP 100% Rumah Diperpanjang: Rumah di Bawah Rp 2 Miliar Bebas Pajak",
-    category: "Kebijakan & Pajak",
+    title: "Rumah Bebas PPN 100% Diperpanjang: Solusi Hemat Puluhan Juta Buat First-Home Buyer!",
+    category: "Gen Z Tax Relief",
     source: "RumahKita News",
     date: "20 Agu 2026",
-    summary: "Pemerintah resmi memperpanjang insentif PPN Ditanggung Pemerintah (PPN DTP) hingga akhir tahun. Pembelian hunian siap huni dengan harga sampai Rp 2 Miliar mendapat pembebasan pajak penuh.",
-    url: "https://example.com/news/ppn-dtp-2026",
+    summary: "Insentif PPN DTP 100% untuk rumah ready-stock dibawah Rp 2 Miliar sah diperpanjang. Buat Milenial muda yang lagi nahan dana akad KPR, ini momen emas hemat cash awal.",
+    url: "https://example.com/news/ppn-dtp-genz",
     keyPoints: [
-      "Bebas PPN 100% untuk rumah ready stock < Rp 2 Miliar.",
-      "Penghematan biaya awal hingga puluhan juta rupiah.",
-      "Pengembang siapkan ribuan unit siap huni."
+      "Bebas PPN 100% = Tabungan dana darurat kamu nggak langsung ludes.",
+      "Khusus rumah ready stock: Bebas stres nunggu pembangunan developer telat.",
+      "Kombinasikan dengan promo developer bebas biaya KPR/BPHTB."
     ]
   },
   {
     id: "news-3",
-    title: "Tren 'Transit-Oriented Development' (TOD) Jadi Favorit Milenial Jakarta & Suburb",
-    category: "Lifestyle & Investment",
+    title: "Rumah Pinggir Kota vs Apartemen TOD Transit: Mana Yang Nggak Bikin Mental Health Fomo?",
+    category: "Gen Z Lifestyle",
     source: "Urban Living Times",
     date: "19 Agu 2026",
-    summary: "Hunian yang terintegrasi langsung dengan stasiun LRT, MRT, dan KRL mengalami lonjakan peminat hingga 35%. Kepraktisan mobilitas dan nilai investasi jangka panjang jadi alasan utama.",
-    url: "https://example.com/news/tod-housing-trend",
+    summary: "Pilih hunian tapak 2 jam naik KRL dari kantor atau apartemen TOD nempel stasiun LRT? Perbandingan jujur ongkos transportasi vs kualitas hidup milenial muda.",
+    url: "https://example.com/news/tod-vs-suburb-genz",
     keyPoints: [
-      "Apartemen & perumahan TOD catat kenaikan harga sewa.",
-      "Hemat waktu tempuh hingga 60 menit sehari.",
-      "Milenial prioritas akses transportasi publik."
+      "Apartemen TOD: Hemat ongkos bensin & waktu commute sampai 50%.",
+      "Rumah Tapak Suburb: Menang luas tanah, tapi capek di jalan.",
+      "Cek kriteria pekerjaan kamu: WFH/Hybrid vs WFO 5 hari seminggu."
     ]
   },
   {
     id: "news-4",
-    title: "Harga Rumah Sekunder di Jabodetabek Naik 4.8%: Area BSD & Gading Serpong Memimpin",
-    category: "Harga & Tren",
+    title: "First-Home Reality Check: Gaji 7-10 Juta Bisakah Beli Rumah Sendiri Tanpa Bantuan Orang Tua?",
+    category: "Financial Freedom",
     source: "IndoProperty Index",
     date: "18 Agu 2026",
-    summary: "Indeks harga rumah second menunjukkan tren positif. Kawasan Tangerang Selatan dan Kab. Tangerang mencatat pertumbuhan harga tertinggi karena kelengkapan infrastruktur dan fasilitas komersial.",
-    url: "https://example.com/news/secondary-housing-index",
+    summary: "Studi kasus riil milenial muda di Tangerang & Bogor. Strategi alokasi dana, gabung KPR bersama pasangan (Joint Income), dan memilih tenor 20-25 tahun tanpa terjebak kredit macet.",
+    url: "https://example.com/news/gaji-7jt-beli-rumah",
     keyPoints: [
-      "Kenaikan rata-rata 4.8% (YoY) di Jabodetabek.",
-      "Kawasan BSD & Gading Serpong paling diburu.",
-      "Permintaan tinggi di kelas harga Rp 1.2M - Rp 2.5M."
+      "Gaji 7-10 Juta aman ambil KPR cicilan max Rp 2.5M - 3M/bulan.",
+      "Fitur Joint Income KPR bisa melipatgandakan plafon pinjaman.",
+      "Hindari pinjol & cicilan konsumtif 6 bulan sebelum pengajuan KPR."
     ]
   }
 ];
@@ -62,7 +62,7 @@ export const INITIAL_PROPERTY_NEWS = [
 export const THEME_PRESETS = [
   {
     id: "modern-dark",
-    name: "Dark Luxury Glass",
+    name: "Gen Z Neon Glass",
     bg: "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #090d16 100%)",
     cardBg: "rgba(30, 41, 59, 0.7)",
     textColor: "#ffffff",
@@ -72,7 +72,7 @@ export const THEME_PRESETS = [
   },
   {
     id: "emerald-wealth",
-    name: "Emerald Property",
+    name: "Money & Wealth",
     bg: "linear-gradient(135deg, #064e3b 0%, #022c22 100%)",
     cardBg: "rgba(6, 78, 59, 0.6)",
     textColor: "#f0fdf4",
@@ -104,38 +104,38 @@ export const THEME_PRESETS = [
 
 export function generateAIGeneratedPost(newsItem, styleTone = "professional") {
   const tonePrefix = {
-    professional: "📊 ANALISIS PASAR PROPERTI MINGGU INI",
-    casual: "🔥 SPOILER: Momen Terbaik Beli Rumah Ada Sekarang?!",
-    storytelling: "💡 Mengapa Anak Muda Banyak yang Mulai Beli Rumah di 2026?"
-  }[styleTone] || "📢 PROPERTY NEWS WEEKLY UPDATE";
+    professional: "📊 FIRST-HOME REALITY CHECK | INFO KPR GEN Z",
+    casual: "🔥 SPOILER: Panik Lihat Harga Rumah? Cek Fakta KPR Ini!",
+    storytelling: "💡 Curhat Milenial: 'Gue Bisa Nggak Ya Punya Rumah Sendiri?'"
+  }[styleTone] || "📢 KPR ANXIETY & PROPERTY NEWS";
 
   const slide1Title = newsItem.title.split(":")[0] || newsItem.title;
-  const slide1Sub = newsItem.source + " • " + newsItem.date;
+  const slide1Sub = newsItem.source + " • Target: Gen Z & Young Millennials";
 
   const slides = [
     {
       slideIndex: 1,
       type: "cover",
-      tagline: newsItem.category.toUpperCase(),
+      tagline: "REALITY CHECK 🎯",
       title: slide1Title,
       subtitle: slide1Sub,
-      footer: "Swipe untuk rangkuman lengkap 👉"
+      footer: "Swipe biar gak panik lagi 👉"
     },
     ...newsItem.keyPoints.map((pt, idx) => ({
       slideIndex: idx + 2,
       type: "point",
-      tagline: `POINT ${idx + 1}`,
+      tagline: `FACT #${idx + 1}`,
       title: pt,
-      subtitle: "Dampak signifikan untuk pembeli rumah & investor properti saat ini.",
-      footer: `Weekly IG Post Generator • ${idx + 2}/4`
+      subtitle: "Perspektif realistis buat kamu yang mau ambil KPR pertama tanpa mikir terlalu berat.",
+      footer: `KPR Anxiety Guide • ${idx + 2}/4`
     })),
     {
       slideIndex: 4,
       type: "cta",
-      tagline: "ACTION PLAN",
-      title: "Mau Punya Rumah / Investasi Properti Tahun Ini?",
-      subtitle: "Simpan post ini & share ke pasangan / keluarga kamu sekarang!",
-      footer: "Follow @YourPropertyBrand for Weekly Market News 🚀"
+      tagline: "SURVIVAL KIT 🚀",
+      title: "Punya KPR Anxiety Atau Masih Bingung Hitung DP?",
+      subtitle: "Simpan post ini & share ke pasangan/bestie kamu yang lagi pejuang rumah pertama!",
+      footer: "Follow @FirstHomeGenZ for Honest Property Tips 💡"
     }
   ];
 
@@ -145,23 +145,24 @@ ${newsItem.title}
 
 ${newsItem.summary}
 
-🔑 Poin Penting Minggu Ini:
+🔑 Reality Check Poin Penting:
 ${newsItem.keyPoints.map(p => `• ${p}`).join("\n")}
 
-💬 Pertanyaan untuk kamu:
-Apakah menurutmu ini momen yang tepat untuk ambil KPR atau investasi properti? Tulis pendapatmu di kolom komentar! 👇
+💬 Pertanyaan buat kamu pejuang rumah pertama:
+Apa hal terbesar yang paling bikin kamu takut/panik waktu mikirin KPR rumah pertama? (DP / Cicilan / Suku Bunga / Biaya Akad)? Tulis curhatanmu di kolom komentar yuk! 👇
 
 ---
-📌 Simpan postingan ini agar tidak lupa!
-👥 Tag teman/pasangan kamu yang lagi cari rumah!
+📌 Simpan postingan ini biar nggak hilang pas butuh!
+👥 Tag pasangan / bestie kamu yang lagi pusing nyari rumah pertama!
 
-#PropertyNews #InvestasiProperti #RumahImpian #InfoKPR #TipsProperti #PropertiIndonesia #RealEstateID #KPRMurah`;
+#GenZProperty #FirstHomeBuyer #KPRAnxiety #RumahPertama #TipsKPR #FinancialFreedomGenZ #PropertiMilenial #InfoKPR`;
 
   return {
     newsId: newsItem.id,
     tone: styleTone,
     slides,
     caption,
-    hashtags: ["#PropertyNews", "#InvestasiProperti", "#RumahImpian", "#InfoKPR", "#TipsProperti"]
+    hashtags: ["#GenZProperty", "#FirstHomeBuyer", "#KPRAnxiety", "#RumahPertama", "#TipsKPR"]
   };
 }
+
