@@ -220,13 +220,15 @@ export const THEME_PRESETS = [
 ];
 
 export function generateAIGeneratedPost(newsItem, styleTone = "professional") {
+  const categoryUpper = (newsItem.category || "PROPERTY NEWS").toUpperCase();
+
   const tonePrefix = {
-    professional: "📊 FIRST-HOME REALITY CHECK | INFO KPR GEN Z",
-    casual: "🔥 SPOILER: Panik Lihat Harga Rumah? Cek Fakta KPR Ini!",
-    storytelling: "💡 Curhat Milenial: 'Gue Bisa Nggak Ya Punya Rumah Sendiri?'",
-    educational: "📚 KPR CLASS 101: Bedah Tuntas Berita Properti Minggu Ini",
-    urgent: "🚨 WARNING GUYS: Jangan Ambil KPR Sebelum Paham Poin Ini!"
-  }[styleTone] || "📢 KPR ANXIETY & PROPERTY NEWS";
+    professional: `📊 ${categoryUpper} | MARKET ANALYSIS 2026`,
+    casual: `🔥 SPOILER [${categoryUpper}]: Wajib Paham Sebelum Ambil Rumah!`,
+    storytelling: `💡 CURHAT MILENIAL (${categoryUpper}): 'Bisa Nggak Ya Punya Rumah?'`,
+    educational: `📚 KPR CLASS 101: Bedah Tuntas [${newsItem.source || 'Property Feed'}]`,
+    urgent: `🚨 WARNING ALERTL [${categoryUpper}]: Cek Poin Ini Sebelum Tanda Tangan!`
+  }[styleTone] || `📢 ${categoryUpper} WEEKLY UPDATE`;
 
   const slide1Title = newsItem.title.split(":")[0] || newsItem.title;
   const slide1Sub = newsItem.source + " • Target: Gen Z & Young Millennials";
