@@ -508,28 +508,30 @@ export default function App() {
             )}
           </div>
 
-          {/* Slide Switcher */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '14px' }}>
-            <span style={{ fontSize: '0.78rem', color: 'var(--color-moon-mist)', marginRight: '4px' }}>Slide Selection:</span>
-            {generatedPost.slides.map((slide, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveSlideIndex(idx)}
-                style={{
-                  padding: '6px 12px',
-                  borderRadius: '6px',
-                  border: idx === activeSlideIndex ? '1px solid var(--color-void-violet)' : '1px solid var(--color-glass-edge)',
-                  background: idx === activeSlideIndex ? 'rgba(102, 58, 243, 0.25)' : 'var(--color-luminous-fill)',
-                  color: idx === activeSlideIndex ? '#ffffff' : 'var(--color-moon-mist)',
-                  fontSize: '0.78rem',
-                  fontWeight: 500,
-                  cursor: 'pointer'
-                }}
-              >
-                Slide {idx + 1}
-              </button>
-            ))}
-          </div>
+          {/* Slide Switcher - Hanya muncul jika BUKAN Photo Flyer */}
+          {selectedTheme.styleType !== 'photo-flyer' && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '14px' }}>
+              <span style={{ fontSize: '0.78rem', color: 'var(--color-moon-mist)', marginRight: '4px' }}>Slide Selection:</span>
+              {generatedPost.slides.map((slide, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveSlideIndex(idx)}
+                  style={{
+                    padding: '6px 12px',
+                    borderRadius: '6px',
+                    border: idx === activeSlideIndex ? '1px solid var(--color-void-violet)' : '1px solid var(--color-glass-edge)',
+                    background: idx === activeSlideIndex ? 'rgba(102, 58, 243, 0.25)' : 'var(--color-luminous-fill)',
+                    color: idx === activeSlideIndex ? '#ffffff' : 'var(--color-moon-mist)',
+                    fontSize: '0.78rem',
+                    fontWeight: 500,
+                    cursor: 'pointer'
+                  }}
+                >
+                  Slide {idx + 1}
+                </button>
+              ))}
+            </div>
+          )}
 
         </section>
 
