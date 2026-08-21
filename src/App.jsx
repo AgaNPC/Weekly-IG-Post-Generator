@@ -317,9 +317,115 @@ export default function App() {
             {isGenerating ? (
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
                 <RefreshCw size={32} color="#663af3" style={{ animation: 'spin 1s linear infinite' }} />
-                <p style={{ fontSize: '0.85rem', color: 'var(--color-moon-mist)' }}>Generating AuthKit Glass Slide...</p>
+                <p style={{ fontSize: '0.85rem', color: 'var(--color-moon-mist)' }}>Generating Visual Slide...</p>
+              </div>
+            ) : selectedTheme.styleType === 'photo-flyer' ? (
+              /* REAL ESTATE POSTER / FLYER LAYOUT (PERSIS GAMBAR REFERENSI USER) */
+              <div 
+                ref={slideRef}
+                style={{
+                  width: '390px',
+                  height: '460px',
+                  backgroundImage: `linear-gradient(to bottom, rgba(244,240,234,0.3) 0%, rgba(0,0,0,0.7) 100%), url(${selectedNews.image || '/house1.jpg'})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  borderRadius: '16px',
+                  padding: '20px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justify: 'space-between',
+                  boxShadow: 'var(--shadow-modal)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  color: '#ffffff'
+                }}
+              >
+                {/* Top Overlay Badge & Title */}
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                    <span style={{ fontSize: '0.75rem', letterSpacing: '0.1em', fontWeight: 700, color: '#4a3e35', textTransform: 'uppercase', fontStyle: 'italic' }}>
+                      Super Sale
+                    </span>
+                    <div style={{ display: 'flex', gap: '4px' }}>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#4a3e35' }}></span>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#4a3e35' }}></span>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#4a3e35' }}></span>
+                    </div>
+                  </div>
+
+                  <h2 style={{ fontSize: '1.6rem', fontWeight: 800, lineHeight: 1.1, color: '#3c332c', textTransform: 'uppercase', textShadow: '0 2px 10px rgba(255,255,255,0.8)' }}>
+                    Hunian<br />Modern
+                  </h2>
+                </div>
+
+                {/* Center Sub-Images Floating Cards */}
+                <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-start', margin: '10px 0' }}>
+                  <div style={{ 
+                    width: '100px', 
+                    height: '110px', 
+                    borderRadius: '16px', 
+                    overflow: 'hidden', 
+                    border: '3px solid #ffffff',
+                    backgroundImage: `url(${selectedNews.image || '/house1.jpg'})`,
+                    backgroundSize: 'cover'
+                  }} />
+                  <div style={{ 
+                    width: '100px', 
+                    height: '110px', 
+                    borderRadius: '16px', 
+                    overflow: 'hidden', 
+                    border: '3px solid #ffffff',
+                    backgroundImage: `url(${selectedNews.subImage || '/house2.jpg'})`,
+                    backgroundSize: 'cover'
+                  }} />
+                </div>
+
+                {/* Bottom Specs & Contact Pills */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ 
+                      flex: 1, 
+                      background: 'rgba(245, 243, 240, 0.92)', 
+                      padding: '8px 14px', 
+                      borderRadius: '20px', 
+                      color: '#3c332c', 
+                      fontSize: '0.72rem', 
+                      fontWeight: 600 
+                    }}>
+                      ✓ {selectedNews.specs || 'Kamar Tidur 3 • Kamar Mandi 2'}
+                    </div>
+
+                    <div style={{ 
+                      background: '#ffffff', 
+                      color: '#3c332c', 
+                      padding: '6px 14px', 
+                      borderRadius: '30px', 
+                      fontWeight: 800, 
+                      fontSize: '1.2rem',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
+                    }}>
+                      {selectedNews.discountTag || '45%'}
+                    </div>
+                  </div>
+
+                  {/* Contact Banner Pill */}
+                  <div style={{ 
+                    background: 'rgba(45, 40, 36, 0.9)', 
+                    color: '#ffffff', 
+                    padding: '8px 16px', 
+                    borderRadius: '20px', 
+                    textAlign: 'center', 
+                    fontSize: '0.72rem', 
+                    fontWeight: 500,
+                    backdropFilter: 'blur(6px)'
+                  }}>
+                    {selectedNews.contact || 'Hubungi Kami Lebih Lanjut : +62 812-3456-7890'}
+                  </div>
+                </div>
               </div>
             ) : (
+              /* CARD / CAROUSEL LAYOUT */
               <div 
                 ref={slideRef}
                 style={{
