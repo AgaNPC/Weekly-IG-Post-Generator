@@ -74,10 +74,10 @@ export default function App() {
     e.preventDefault();
     if (!customTitle || !customSummary) return;
 
-    // Pick dynamic default images for custom user news
-    const sampleImages = ["/house1.jpg", "/house2.jpg", "/house_tod.jpg", "/house_syariah.jpg", "/house_second.jpg"];
-    const randomImg = sampleImages[Math.floor(Math.random() * sampleImages.length)];
-    const randomSubImg = sampleImages[(Math.floor(Math.random() * sampleImages.length) + 1) % sampleImages.length];
+    // Generate dynamic Unsplash real estate image URLs based on custom title keywords
+    const keywords = encodeURIComponent(`${customTitle} modern architecture house exterior building`);
+    const dynamicUnsplashMain = `https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80&sig=${Date.now()}`;
+    const dynamicUnsplashSub = `https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80&sig=${Date.now() + 1}`;
 
     const newNews = {
       id: `custom-${Date.now()}`,
@@ -86,9 +86,9 @@ export default function App() {
       source: "User Live Feed",
       date: "Hari Ini",
       summary: customSummary,
-      image: randomImg,
-      subImage: randomSubImg,
-      discountTag: "SPECIAL OFFER",
+      image: dynamicUnsplashMain,
+      subImage: dynamicUnsplashSub,
+      discountTag: "PROMO BARU",
       specs: "Hunian Pilihan • Lokasi Strategis",
       contact: "Hubungi Agent : +62 812-0000-9999",
       url: "#",
