@@ -74,26 +74,51 @@ export default function App() {
     e.preventDefault();
     if (!customTitle || !customSummary) return;
 
+    // Pick dynamic default images for custom user news
+    const sampleImages = ["/house1.jpg", "/house2.jpg", "/house_tod.jpg", "/house_syariah.jpg", "/house_second.jpg"];
+    const randomImg = sampleImages[Math.floor(Math.random() * sampleImages.length)];
+    const randomSubImg = sampleImages[(Math.floor(Math.random() * sampleImages.length) + 1) % sampleImages.length];
+
     const newNews = {
       id: `custom-${Date.now()}`,
       title: customTitle,
-      category: "Custom News Feed",
-      source: "User Input",
+      category: "User Custom News",
+      source: "User Live Feed",
       date: "Hari Ini",
       summary: customSummary,
+      image: randomImg,
+      subImage: randomSubImg,
+      discountTag: "SPECIAL OFFER",
+      specs: "Hunian Pilihan • Lokasi Strategis",
+      contact: "Hubungi Agent : +62 812-0000-9999",
       url: "#",
       keyPoints: [
-        customSummary.slice(0, 60) + "...",
-        "Analisis kustom untuk target Gen Z & Young Millennials.",
+        customSummary.length > 70 ? customSummary.slice(0, 70) + "..." : customSummary,
+        "Analisis kustom otomatis untuk pembeli rumah pertama & Gen Z.",
         "Rekomendasi taktis sebelum mengambil keputusan KPR."
       ]
     };
 
-    setNewsList([newNews, ...newsList]);
+    const updatedList = [newNews, ...newsList];
+    setNewsList(updatedList);
     setSelectedNews(newNews);
-    setGeneratedPost(generateAIGeneratedPost(newNews, tone));
+    
+    // Auto-generate full poster, caption & hashtags immediately
+    setIsGenerating(true);
+    setTimeout(() => {
+      setGeneratedPost(generateAIGeneratedPost(newNews, tone));
+      setIsGenerating(false);
+      setActiveSlideIndex(0);
+    }, 300);
+
     setCustomTitle('');
     setCustomSummary('');
+
+    confetti({
+      particleCount: 60,
+      spread: 60,
+      origin: { y: 0.8 }
+    });
   };
 
   const handleCopyCaption = () => {
